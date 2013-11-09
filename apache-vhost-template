@@ -2,8 +2,8 @@
         ServerAdmin mail@ernestoruge.de
         ServerName bochum.ris.openruhr.de
         DocumentRoot /srv/www/ris-web/httpdocs
-        ErrorLog /var/log/apache2/bochum.error.log
-        CustomLog /var/log/apache2/bochum.access.log combined
+        ErrorLog /var/log/apache2/ris-web.error.log
+        CustomLog /var/log/apache2/ris-web.access.log combined
 
         Alias /static/ /opt/ris-web/webapp/static/
         <Directory /opt/ris-web/webapp/static>
@@ -15,8 +15,8 @@
                 </IfModule>
         </Directory>
 
-        WSGIDaemonProcess ris-bochum user=ris-web group=ris-web threads=5
-        WSGIScriptAlias / /srv/www/ris-web/httpdocs/bochum.wsgi
+        WSGIDaemonProcess ris-bochum user=www-data group=www-data threads=5
+        WSGIScriptAlias / /srv/www/ris-web/httpdocs/ris-web.wsgi
         <Directory /srv/www/ris-web/httpdocs>
                 Order deny,allow
                 Allow from all
