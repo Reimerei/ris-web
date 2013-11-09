@@ -83,11 +83,11 @@ network.publish_host: 127.0.0.1
 
 # Apache 2 einrichten
 cp /opt/ris-web/apache-vhost-template /etc/apache2/sites-avaiable/ris-meinestadt
-a2enmod mod_wsgi
+a2enmod wsgi
 vim /etc/apache2/sites-avaiable/ris-meinestadt # Die Werte ServerAdmin, ServerName (2x), DocumentRoot, ErrorLog, CustomLog, WSGIDaemonProcess, WSGIScriptAlias sowie die <Directory>s an die eigene Stadt anpassen
 cp /opt/ris-web/template.wsgi /opt/ris-web/meinestadt.wsgi
 vim /opt/ris-web/meinestadt.wsgi # Pfad zum Stadt-Config-File (os.environ['CITY_CONF']) anpassen
-a2enmod ris-meinestadt
+a2ensite ris-meinestadt
 service apache2 reload
 
 # Konfiguration erstellen

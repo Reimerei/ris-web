@@ -1,0 +1,9 @@
+# create docker image
+docker build -t ris-web .
+
+# create container and run
+docker run -d -name ris-web ris-web
+
+# start stop container
+docker stop ris-web
+docker start ris-web
